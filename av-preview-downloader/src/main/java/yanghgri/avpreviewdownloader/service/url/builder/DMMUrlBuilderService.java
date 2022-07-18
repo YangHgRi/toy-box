@@ -1,9 +1,10 @@
 package yanghgri.avpreviewdownloader.service.url.builder;
 
+import org.springframework.stereotype.Service;
 import yanghgri.avpreviewdownloader.dto.Url;
 import yanghgri.avpreviewdownloader.enums.DownLoadSourcePrefix;
-import yanghgri.avpreviewdownloader.service.url.builder.UrlBuilderService;
 
+@Service
 public class DMMUrlBuilderService implements UrlBuilderService {
     @Override
     public Url build(String id) {

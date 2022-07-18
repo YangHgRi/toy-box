@@ -1,0 +1,11 @@
+server:
+  port: 11604
+  servlet:
+    context-path: /apd
+spring:
+  application:
+    name: av-preview-downloader
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml

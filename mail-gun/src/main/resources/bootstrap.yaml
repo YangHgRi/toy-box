@@ -1,0 +1,9 @@
+server:
+  port: 13070
+spring:
+  application:
+    name: mail-gun
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml

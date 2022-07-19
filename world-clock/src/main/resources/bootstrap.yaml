@@ -1,0 +1,16 @@
+server:
+  port: 23030
+  servlet:
+    context-path: /wc
+spring:
+  application:
+    name: world-clock
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+clock:
+  active:
+    - "Asia/Shanghai"
+    - "America/New_York"
+    - "Asia/Tokyo"

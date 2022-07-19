@@ -5,6 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>av-preview-downloader</module>
+        <module>world-clock</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -162,6 +163,8 @@
                     <include>**/*.xml</include>
                     <include>**/*.yml</include>
                     <include>**/*.yaml</include>
+                    <include>**/*.html</include>
+                    <include>**/**</include>
                 </includes>
             </resource>
             <resource>
@@ -170,6 +173,8 @@
                     <include>**/*.xml</include>
                     <include>**/*.yml</include>
                     <include>**/*.yaml</include>
+                    <include>**/*.html</include>
+                    <include>**/**</include>
                 </includes>
             </resource>
             <resource>
@@ -178,6 +183,8 @@
                     <include>**/*.xml</include>
                     <include>**/*.yml</include>
                     <include>**/*.yaml</include>
+                    <include>**/*.html</include>
+                    <include>**/**</include>
                 </includes>
             </resource>
             <resource>
@@ -186,6 +193,8 @@
                     <include>**/*.xml</include>
                     <include>**/*.yml</include>
                     <include>**/*.yaml</include>
+                    <include>**/*.html</include>
+                    <include>**/**</include>
                 </includes>
             </resource>
         </resources>

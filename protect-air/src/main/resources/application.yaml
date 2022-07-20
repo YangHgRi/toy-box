@@ -1,0 +1,14 @@
+server:
+  port: 16010
+  servlet:
+    context-path: /pa
+spring:
+  application:
+    name: protect-air
+  profiles:
+    active: secret
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/protect_air?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    username: root

@@ -1,4 +1,4 @@
-package yanghgri.protectair.ProtectAirApplication;
+package yanghgri.protectair;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

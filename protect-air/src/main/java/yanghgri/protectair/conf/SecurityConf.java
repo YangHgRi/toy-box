@@ -1,4 +1,4 @@
-package yanghgri.protectair.ProtectAirApplication.conf;
+package yanghgri.protectair.conf;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

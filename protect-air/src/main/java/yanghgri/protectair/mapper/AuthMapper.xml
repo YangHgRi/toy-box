@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yanghgri.protectair.mapper.AuthMapper">
+    <resultMap id="userResultMap" type="yanghgri.protectair.entity.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <resultMap id="roleResultMap" type="yanghgri.protectair.entity.Role">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <select id="selectOneByName" parameterType="string" resultMap="userResultMap">
+        SELECT u.id, u.name, u.password
+        FROM user as u
+        WHERE u.name = #{name}
+    </select>
+
+    <select id="selectRoleSetByUserId" parameterType="long" resultMap="roleResultMap">
+        SELECT r.id, r.name
+        FROM role as r
+        WHERE r.id IN
+              (SELECT urr.role_id
+               FROM user_role_relation urr
+               WHERE urr.user_id = #{userId})
+    </select>
+</mapper>

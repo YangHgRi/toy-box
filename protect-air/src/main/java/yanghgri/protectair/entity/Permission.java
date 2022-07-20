@@ -1,4 +1,4 @@
-package yanghgri.protectair.ProtectAirApplication.entity;
+package yanghgri.protectair.entity;
 
 import lombok.Data;
 

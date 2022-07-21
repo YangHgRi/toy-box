@@ -31,4 +31,5 @@ build/
 ### VS Code ###
 .vscode/
 /logs/
-/protect-air/src/main/resources/application-secret.yaml
+/**/src/main/resources/application-secret.yaml
+/**/src/main/resources/rebel.xml

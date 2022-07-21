@@ -1,0 +1,7 @@
+server:
+  port: ${random.int[1024,49151]}
+  servlet:
+    context-path: /bp
+spring:
+  application:
+    name: bored-poi

@@ -1,5 +1,5 @@
 server:
-  port: 23030
+  port: ${random.int[1024,49151]}
   servlet:
     context-path: /wc
 spring:

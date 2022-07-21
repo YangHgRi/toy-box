@@ -1,0 +1,27 @@
+server:
+  port: 10001
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: bored-poi
+          uri: lb://bored-poi
+          predicates:
+            - Path=/bp/**
+
+        - id: av-preview-downloader
+          uri: lb://av-preview-downloader
+          predicates:
+            - Path=/apd/**
+
+        - id: protect-air
+          uri: lb://protect-air
+          predicates:
+            - Path=/pa/**
+
+        - id: world-clock
+          uri: lb://world-clock
+          predicates:
+            - Path=/wc/**

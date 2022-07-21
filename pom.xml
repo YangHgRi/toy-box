@@ -8,6 +8,7 @@
         <module>world-clock</module>
         <module>protect-air</module>
         <module>bored-poi</module>
+        <module>gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -17,7 +18,7 @@
     </parent>
     <groupId>yanghgri</groupId>
     <artifactId>toy-box</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>toy-box</name>
     <description>toy-box</description>
 
@@ -33,10 +34,6 @@
         </dependency>
 
         <!--微服务-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
@@ -90,6 +87,11 @@
         <dependency>
             <groupId>yanghgri</groupId>
             <artifactId>common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>yanghgri</groupId>
+            <artifactId>devform-base</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>

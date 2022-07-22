@@ -4,10 +4,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import yanghgri.boredpoi.service.ExcelService;
 import yanghgri.devform.base.enums.SpecialMIMEType;
@@ -17,15 +14,16 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 @RestController
-public class POITransferController {
+@RequestMapping("/excel")
+public class ExcelController {
     private final ExcelService excelService;
 
     @Autowired
-    public POITransferController(ExcelService excelService) {
+    public ExcelController(ExcelService excelService) {
         this.excelService = excelService;
     }
 
-    @GetMapping("/excel/download")
+    @GetMapping("/download")
     public void excelDownloader(HttpServletResponse response) throws IOException {
         try (OutputStream outputStream = response.getOutputStream(); Workbook workbook = excelService.createExcelFile()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
@@ -34,7 +32,7 @@ public class POITransferController {
         }
     }
 
-    @PostMapping("/excel/read")
+    @PostMapping("/read")
     public String readExcel(@RequestPart("file") MultipartFile file) {
         try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
             return excelService.readExcelFile(workbook);

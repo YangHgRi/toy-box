@@ -23,9 +23,9 @@ public class ExcelController {
         this.excelService = excelService;
     }
 
-    @GetMapping("/download")
-    public void excelDownloader(@NonNull HttpServletResponse response) throws IOException {
-        try (Workbook workbook = excelService.createExcelFile()) {
+    @GetMapping("/write")
+    public void write(@NonNull HttpServletResponse response) throws IOException {
+        try (Workbook workbook = excelService.write()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.xlsx");
             workbook.write(response.getOutputStream());
@@ -33,9 +33,9 @@ public class ExcelController {
     }
 
     @PostMapping("/read")
-    public String readExcel(@RequestPart("file") MultipartFile file) {
+    public String read(@RequestPart("file") MultipartFile file) {
         try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
-            return excelService.readExcelFile(workbook);
+            return excelService.read(workbook);
         } catch (IOException ioException) {
             ioException.printStackTrace();
             return null;

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class WordService {
-    public XWPFDocument download() {
+    public XWPFDocument write() {
         XWPFDocument document = new XWPFDocument();
         //第一段
         XWPFParagraph paragraph = document.createParagraph();

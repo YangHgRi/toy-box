@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ExcelService {
-    public Workbook createExcelFile() {
+    public Workbook write() {
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet("第一页");
         Row row = sheet.createRow(0);
@@ -18,7 +18,7 @@ public class ExcelService {
         return workbook;
     }
 
-    public String readExcelFile(Workbook workbook) {
+    public String read(Workbook workbook) {
         Sheet sheet = workbook.getSheet("第一页");
         Row row = sheet.getRow(0);
         Cell cell = row.getCell(0);

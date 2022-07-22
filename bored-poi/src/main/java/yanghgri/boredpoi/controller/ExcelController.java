@@ -12,7 +12,6 @@ import yanghgri.devform.base.enums.SpecialMIMEType;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.OutputStream;
 
 @RestController
 @RequestMapping("/excel")
@@ -26,10 +25,10 @@ public class ExcelController {
 
     @GetMapping("/download")
     public void excelDownloader(@NonNull HttpServletResponse response) throws IOException {
-        try (OutputStream outputStream = response.getOutputStream(); Workbook workbook = excelService.createExcelFile()) {
+        try (Workbook workbook = excelService.createExcelFile()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.xlsx");
-            workbook.write(outputStream);
+            workbook.write(response.getOutputStream());
         }
     }
 

@@ -4,9 +4,8 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import yanghgri.boredpoi.service.WordService;
 import yanghgri.devform.base.enums.SpecialMIMEType;
 
@@ -29,8 +28,18 @@ public class WordController {
             response.setContentType(SpecialMIMEType.WORD_DOCX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.docx");
             document.write(response.getOutputStream());
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @PostMapping("/read")
+    public String read(@RequestPart("word") MultipartFile wordFile) {
+        try (XWPFDocument document = new XWPFDocument(wordFile.getInputStream())) {
+            return service.read(document);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
     }
 }

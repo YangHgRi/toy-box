@@ -16,16 +16,16 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/excel")
 public class ExcelController {
-    private final ExcelService excelService;
+    private final ExcelService service;
 
     @Autowired
-    public ExcelController(ExcelService excelService) {
-        this.excelService = excelService;
+    public ExcelController(ExcelService service) {
+        this.service = service;
     }
 
     @GetMapping("/write")
     public void write(@NonNull HttpServletResponse response) throws IOException {
-        try (Workbook workbook = excelService.write()) {
+        try (Workbook workbook = service.write()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.xlsx");
             workbook.write(response.getOutputStream());
@@ -33,9 +33,9 @@ public class ExcelController {
     }
 
     @PostMapping("/read")
-    public String read(@RequestPart("file") MultipartFile file) {
-        try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
-            return excelService.read(workbook);
+    public String read(@RequestPart("excel") MultipartFile excelFile) {
+        try (Workbook workbook = new XSSFWorkbook(excelFile.getInputStream())) {
+            return service.read(workbook);
         } catch (IOException ioException) {
             ioException.printStackTrace();
             return null;

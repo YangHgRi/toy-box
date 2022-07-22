@@ -1,6 +1,9 @@
 package yanghgri.boredpoi.service;
 
-import org.apache.poi.xwpf.usermodel.*;
+import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,5 +21,11 @@ public class WordService {
         run.setBold(true);
         run.setFontSize(16);
         return document;
+    }
+
+    public String read(XWPFDocument document) {
+        StringBuilder stringBuilder = new StringBuilder();
+        document.getParagraphsIterator().forEachRemaining(paragraph -> paragraph.getRuns().forEach(run -> stringBuilder.append(run).append(" ")));
+        return stringBuilder.toString();
     }
 }

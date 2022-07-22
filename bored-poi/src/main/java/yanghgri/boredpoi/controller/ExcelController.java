@@ -4,6 +4,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import yanghgri.boredpoi.service.ExcelService;
@@ -24,7 +25,7 @@ public class ExcelController {
     }
 
     @GetMapping("/download")
-    public void excelDownloader(HttpServletResponse response) throws IOException {
+    public void excelDownloader(@NonNull HttpServletResponse response) throws IOException {
         try (OutputStream outputStream = response.getOutputStream(); Workbook workbook = excelService.createExcelFile()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.xlsx");

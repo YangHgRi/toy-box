@@ -3,6 +3,7 @@ package yanghgri.boredpoi.controller;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class WordController {
     }
 
     @GetMapping("/write")
-    public void write(HttpServletResponse response) {
+    public void write(@NonNull HttpServletResponse response) {
         try (XWPFDocument document = service.write()) {
             response.setContentType(SpecialMIMEType.WORD_DOCX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.docx");

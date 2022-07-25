@@ -2,7 +2,7 @@ package yanghgri.worldclock.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import yanghgri.common.constant.ZonedDateTimeConstant;
+import yanghgri.devform.base.constant.ZonedDateTimeConstant;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;

@@ -25,7 +25,7 @@ public class ExcelController {
 
     @GetMapping("/write")
     public void write(@NonNull HttpServletResponse response) throws IOException {
-        try (Workbook workbook = service.write()) {
+        try (Workbook workbook = service.writeByApachePOI()) {
             response.setContentType(SpecialMIMEType.EXCEL_XLSX.getContent());
             response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=example.xlsx");
             workbook.write(response.getOutputStream());
@@ -35,7 +35,7 @@ public class ExcelController {
     @PostMapping("/read")
     public String read(@RequestPart("excel") MultipartFile excelFile) {
         try (Workbook workbook = new XSSFWorkbook(excelFile.getInputStream())) {
-            return service.read(workbook);
+            return service.readByApachePOI(workbook);
         } catch (IOException ioException) {
             ioException.printStackTrace();
             return null;

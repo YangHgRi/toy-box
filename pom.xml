@@ -9,6 +9,7 @@
         <module>protect-air</module>
         <module>bored-poi</module>
         <module>gateway</module>
+        <module>dict-practice</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

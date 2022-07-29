@@ -8,7 +8,7 @@ import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import yanghgri.boredpoi.service.ExcelService;
-import yanghgri.devform.base.enums.SpecialMIMEType;
+import yanghgri.devform.web.enums.SpecialMIMEType;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;

@@ -1,0 +1,10 @@
+2022-07-22 13:39:54,034 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: OK, code: 200
+2022-07-22 13:39:54,059 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: UNDEFINED, code: 500
+2022-07-22 13:39:54,059 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: NOT_EXIST_USER, code: 401
+2022-07-22 13:39:54,059 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: WRONG_USER_PASSWORD, code: 402
+2022-07-22 13:39:54,059 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: WRONG_PARAMETER, code: 403
+2022-07-22 13:40:02,635 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: OK, code: 200
+2022-07-22 13:40:02,644 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: UNDEFINED, code: 500
+2022-07-22 13:40:02,644 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: NOT_EXIST_USER, code: 401
+2022-07-22 13:40:02,646 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: WRONG_USER_PASSWORD, code: 402
+2022-07-22 13:40:02,646 [INFO] TestEnumSet [lambda$testIterateLogging$0]: name: WRONG_PARAMETER, code: 403

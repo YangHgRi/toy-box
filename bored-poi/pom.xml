@@ -32,5 +32,11 @@
             <artifactId>easyexcel</artifactId>
             <version>3.1.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>yanghgri</groupId>
+            <artifactId>devform-redis</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 </project>

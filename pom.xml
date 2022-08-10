@@ -30,7 +30,17 @@
     <dependencies>
         <dependency>
             <groupId>yanghgri</groupId>
-            <artifactId>devform-spring-boot-starter</artifactId>
+            <artifactId>devform-base</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>yanghgri</groupId>
+            <artifactId>devform-web</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>yanghgri</groupId>
+            <artifactId>devform-cloud</artifactId>
             <version>0.0.1</version>
         </dependency>
     </dependencies>
